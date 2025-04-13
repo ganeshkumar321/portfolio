@@ -1,3 +1,71 @@
-body {
-    font: 100%/1.5 system-ui;
+html {
+    --color-accent: pink;
+    background-color: oklch(from var(--color-accent) 95% 5% h);
+    body {
+        accent-color: var(--color-accent);
+        font: 100%/1.5 system-ui;
+        max-width: 100ch;
+        margin-inline: max(1em, (100% - 100ch) / 2);
+        nav{
+            display: flex;
+            ul{
+                display: contents;
+                li{
+                    display: contents;
+                    a{
+                        text-decoration: none;
+                        color: inherit;
+                        flex: 1;
+                        text-align: center;
+                        padding: 0.5em;
+                        margin-bottom: 1em;
+                        border-bottom: 1px solid black;
+                        &.current{
+                            border-bottom: 0.4em solid lightgray;
+        
+                        }
+                        &:hover{
+                            border-bottom: 0.4em solid var(--color-accent)
+                        }
+                    }
+                }
+            }
+              
+        }
+        form{
+            display:grid;
+            grid-template-columns: auto 1fr;
+            gap: 1em;
+            label{
+                display:grid;
+                grid-template-columns:subgrid;
+                grid-column: -1 / 1;
+            }
+            button{
+                grid-column: -1 / 1;
+            }
+        }
+    }
 }
+
+.projects{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em,1fr));
+    gap: 1em;
+    article{
+        display:grid;
+        grid-template-rows: subgrid;
+        grid-row: span 3;
+        line-height:1.1;
+        h2{
+            margin:0;
+        }
+    }
+}
+
+
+
+
+
+
+
